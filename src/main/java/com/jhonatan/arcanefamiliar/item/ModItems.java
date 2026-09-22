@@ -14,7 +14,7 @@ public class ModItems {
 
     // Agora chamamos PARCHMENT
     public static final RegistryObject<Item> PARCHMENT = ITEMS.register("parchment",
-            () -> new Item(new Item.Properties()));
+            () -> new com.jhonatan.arcanefamiliar.item.custom.ParchmentItem(new Item.Properties().stacksTo(1)));
 
     //pacote
     public static final RegistryObject<Item> PARCEL = ITEMS.register("parcel",
