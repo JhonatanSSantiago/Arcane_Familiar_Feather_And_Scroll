@@ -16,6 +16,10 @@ public class ModItems {
     public static final RegistryObject<Item> PARCHMENT = ITEMS.register("parchment",
             () -> new Item(new Item.Properties()));
 
+    //pacote
+    public static final RegistryObject<Item> PARCEL = ITEMS.register("parcel",
+            () -> new Item(new Item.Properties()));
+
     // Método para conectar a nossa lista de itens ao carregamento inicial do Minecraft
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

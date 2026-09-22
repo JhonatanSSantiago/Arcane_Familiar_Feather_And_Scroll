@@ -24,6 +24,7 @@ public class ArcaneFamiliar {
     private void addCreative(net.minecraftforge.event.BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == net.minecraft.world.item.CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.accept(com.jhonatan.arcanefamiliar.item.ModItems.PARCHMENT);
+            event.accept(com.jhonatan.arcanefamiliar.item.ModItems.PARCEL);
         }
     }
 
