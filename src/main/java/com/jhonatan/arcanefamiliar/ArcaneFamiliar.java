@@ -16,7 +16,16 @@ public class ArcaneFamiliar {
 
         // Registra os itens do mod
         ModItems.register(modEventBus);
+        modEventBus.addListener(this::addCreative);
 
         MinecraftForge.EVENT_BUS.register(this);
     }
+
+    private void addCreative(net.minecraftforge.event.BuildCreativeModeTabContentsEvent event) {
+        if (event.getTabKey() == net.minecraft.world.item.CreativeModeTabs.TOOLS_AND_UTILITIES) {
+            event.accept(com.jhonatan.arcanefamiliar.item.ModItems.PARCHMENT);
+        }
+    }
+
+
 }

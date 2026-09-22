@@ -12,8 +12,8 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, ArcaneFamiliar.MODID);
 
-    // Cria o nosso primeiro item base: O Pergaminho/Carta (Scroll)
-    public static final RegistryObject<Item> SCROLL = ITEMS.register("scroll",
+    // Agora chamamos PARCHMENT
+    public static final RegistryObject<Item> PARCHMENT = ITEMS.register("parchment",
             () -> new Item(new Item.Properties()));
 
     // Método para conectar a nossa lista de itens ao carregamento inicial do Minecraft
