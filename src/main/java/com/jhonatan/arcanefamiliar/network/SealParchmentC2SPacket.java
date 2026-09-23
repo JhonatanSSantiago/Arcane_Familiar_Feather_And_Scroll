@@ -8,22 +8,25 @@ import java.util.function.Supplier;
 
 public class SealParchmentC2SPacket {
     private final String messageText;
+    private final String recipient; // Novo campo para o destinatário
 
     // Construtor usado quando criamos a mensagem no ecrã (Cliente)
-    public SealParchmentC2SPacket(String messageText) {
+    public SealParchmentC2SPacket(String messageText, String recipient) {
         this.messageText = messageText;
+        this.recipient = recipient;
     }
 
     // Construtor usado quando o Servidor recebe a mensagem e a lê
     public SealParchmentC2SPacket(FriendlyByteBuf buf) {
         this.messageText = buf.readUtf();
+        this.recipient = buf.readUtf(); // Lê o destinatário da rede
     }
 
     // Como empacotar a mensagem para enviar pela internet
     public void toBytes(FriendlyByteBuf buf) {
         buf.writeUtf(messageText);
+        buf.writeUtf(recipient); // Escreve o destinatário na rede
     }
-
     // O QUE ACONTECE QUANDO O SERVIDOR RECEBE A MENSAGEM:
     public boolean handle(Supplier<NetworkEvent.Context> supplier) {
         NetworkEvent.Context context = supplier.get();
@@ -55,6 +58,7 @@ public class SealParchmentC2SPacket {
                     net.minecraft.nbt.CompoundTag nbt = sealedParchment.getOrCreateTag();
                     nbt.putString("MessageText", messageText);
                     nbt.putString("Author", player.getName().getString()); // Guarda quem escreveu
+                    nbt.putString("Recipient", recipient); // Guarda o destinatário
 
                     // 4. Entrega o Pergaminho Selado ao jogador
                     if (!player.getInventory().add(sealedParchment)) {
@@ -65,8 +69,8 @@ public class SealParchmentC2SPacket {
                     player.level().playSound(null, player.blockPosition(), net.minecraft.sounds.SoundEvents.UI_CARTOGRAPHY_TABLE_TAKE_RESULT, net.minecraft.sounds.SoundSource.PLAYERS, 1.0F, 1.0F);
 
                 } else {
-                    // Avisa o jogador que falta o selo
-                    player.sendSystemMessage(net.minecraft.network.chat.Component.literal("§cFalta um Selo de Cera no inventário!"));
+                    // Avisa o jogador que falta o selo, O valor 'true' no final é o que coloca a mensagem acima da barra de vida/fome
+                    player.displayClientMessage(net.minecraft.network.chat.Component.literal("§cFalta um Selo de Cera no inventário!"), true);
                 }
             }
         });

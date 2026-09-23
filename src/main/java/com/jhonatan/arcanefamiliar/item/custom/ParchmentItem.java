@@ -19,8 +19,6 @@ public class ParchmentItem extends Item {
 
         // Verificamos se estamos no "Cliente" (o computador do jogador que desenha o ecrã)
         if (level.isClientSide()) {
-            // Futuramente: Código para abrir a Interface Gráfica (GUI) entrará aqui
-            System.out.println("O jogador clicou com o pergaminho na mao!");
             net.minecraft.client.Minecraft.getInstance().setScreen(new com.jhonatan.arcanefamiliar.client.gui.ParchmentScreen());
         }
 
