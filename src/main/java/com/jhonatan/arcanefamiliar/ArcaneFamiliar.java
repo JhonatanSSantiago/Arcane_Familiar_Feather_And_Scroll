@@ -17,6 +17,7 @@ public class ArcaneFamiliar {
         // Registra os itens do mod
         ModItems.register(modEventBus);
         modEventBus.addListener(this::addCreative);
+        modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
     }
@@ -29,6 +30,10 @@ public class ArcaneFamiliar {
             event.accept(com.jhonatan.arcanefamiliar.item.ModItems.MELTED_WAX);
             event.accept(com.jhonatan.arcanefamiliar.item.ModItems.WAX_SEAL);
         }
+    }
+
+    private void commonSetup(final net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent event) {
+        com.jhonatan.arcanefamiliar.network.ModMessages.register();
     }
 
 

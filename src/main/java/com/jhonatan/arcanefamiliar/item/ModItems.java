@@ -22,7 +22,7 @@ public class ModItems {
 
     // O pergaminho final já fechado com a mensagem
     public static final RegistryObject<Item> SEALED_PARCHMENT = ITEMS.register("sealed_parchment",
-            () -> new Item(new Item.Properties().stacksTo(1)));
+            () -> new com.jhonatan.arcanefamiliar.item.custom.SealedParchmentItem(new Item.Properties().stacksTo(1)));
 
     // A cera derretida que sai da fornalha
     public static final RegistryObject<Item> MELTED_WAX = ITEMS.register("melted_wax",

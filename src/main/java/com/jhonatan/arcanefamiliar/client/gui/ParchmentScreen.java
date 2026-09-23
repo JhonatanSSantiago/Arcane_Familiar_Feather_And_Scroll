@@ -35,6 +35,10 @@ public class ParchmentScreen extends Screen {
         this.addRenderableWidget(net.minecraft.client.gui.components.Button.builder(Component.literal("Assinar e Selar"), button -> {
             // No futuro, colocaremos aqui o código para enviar o texto ao servidor (NBT)
             System.out.println("Texto a ser salvo: " + this.textBox.getValue());
+            // ENVIAR A MENSAGEM PARA O SERVIDOR!
+            com.jhonatan.arcanefamiliar.network.ModMessages.sendToServer(
+                    new com.jhonatan.arcanefamiliar.network.SealParchmentC2SPacket(this.textBox.getValue())
+            );
             this.onClose();
         }).bounds(x, y + altura + 10, larguraBotao, alturaBotao).build());
 
