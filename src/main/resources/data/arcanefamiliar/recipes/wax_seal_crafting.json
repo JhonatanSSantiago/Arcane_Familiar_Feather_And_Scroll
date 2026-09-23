@@ -3,7 +3,8 @@
   "ingredients": [
     { "item": "arcanefamiliar:melted_wax" },
     { "item": "minecraft:red_dye" },
-    { "item": "minecraft:string" }
+    { "item": "minecraft:string" },
+    { "item": "minecraft:stick" }
   ],
   "result": {
     "item": "arcanefamiliar:wax_seal",

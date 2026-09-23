@@ -18,11 +18,15 @@ public class ModItems {
 
     //pacote
     public static final RegistryObject<Item> PARCEL = ITEMS.register("parcel",
-            () -> new Item(new Item.Properties()));
+            () -> new com.jhonatan.arcanefamiliar.item.custom.ParcelItem(new Item.Properties().stacksTo(1)));
 
     // O pergaminho final já fechado com a mensagem
     public static final RegistryObject<Item> SEALED_PARCHMENT = ITEMS.register("sealed_parchment",
             () -> new com.jhonatan.arcanefamiliar.item.custom.SealedParchmentItem(new Item.Properties().stacksTo(1)));
+
+    //pacote fechado e selado
+    public static final RegistryObject<Item> SEALED_PARCEL = ITEMS.register("sealed_parcel",
+            () -> new com.jhonatan.arcanefamiliar.item.custom.SealedParcelItem(new Item.Properties().stacksTo(1)));
 
     // A cera derretida que sai da fornalha
     public static final RegistryObject<Item> MELTED_WAX = ITEMS.register("melted_wax",

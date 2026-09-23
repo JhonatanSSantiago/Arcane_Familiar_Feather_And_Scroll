@@ -18,6 +18,9 @@ public class ArcaneFamiliar {
         ModItems.register(modEventBus);
         modEventBus.addListener(this::addCreative);
         modEventBus.addListener(this::commonSetup);
+        modEventBus.addListener(this::clientSetup);
+
+        com.jhonatan.arcanefamiliar.menu.ModMenuTypes.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
     }
@@ -34,6 +37,19 @@ public class ArcaneFamiliar {
 
     private void commonSetup(final net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent event) {
         com.jhonatan.arcanefamiliar.network.ModMessages.register();
+    }
+
+    private void clientSetup(final net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent event) {
+        // Liga o Menu Lógico ao Ecrã Visual
+        net.minecraft.client.gui.screens.MenuScreens.register(
+                com.jhonatan.arcanefamiliar.menu.ModMenuTypes.PARCEL_MENU.get(),
+                com.jhonatan.arcanefamiliar.client.gui.ParcelScreen::new
+        );
+        // Adicione esta nova linha:
+        net.minecraft.client.gui.screens.MenuScreens.register(
+                com.jhonatan.arcanefamiliar.menu.ModMenuTypes.READ_PARCEL_MENU.get(),
+                com.jhonatan.arcanefamiliar.client.gui.ReadParcelScreen::new
+        );
     }
 
 

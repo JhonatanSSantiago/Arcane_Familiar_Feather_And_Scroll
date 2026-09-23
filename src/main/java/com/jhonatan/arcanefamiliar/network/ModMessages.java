@@ -26,6 +26,13 @@ public class ModMessages {
                 .encoder(SealParchmentC2SPacket::toBytes)
                 .consumerMainThread(SealParchmentC2SPacket::handle)
                 .add();
+
+        // Adicione isto junto do registo do SealParchmentC2SPacket
+        net.messageBuilder(SealParcelC2SPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+                .decoder(SealParcelC2SPacket::new)
+                .encoder(SealParcelC2SPacket::toBytes)
+                .consumerMainThread(SealParcelC2SPacket::handle)
+                .add();
     }
 
     public static <MSG> void sendToServer(MSG message) {
