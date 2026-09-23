@@ -29,10 +29,10 @@ public class ParchmentScreen extends Screen {
         //permite escrever
         this.addRenderableWidget(this.textBox);
         // Define o tamanho padrão dos botões
-        int larguraBotao = 100;
+        int larguraBotao = 120;
         int alturaBotao = 20;
-        // Botão Salvar (Posicionado à esquerda, abaixo da caixa de texto)
-        this.addRenderableWidget(net.minecraft.client.gui.components.Button.builder(Component.literal("Salvar"), button -> {
+        // Botão Assinar e Selar (Posicionado à esquerda, abaixo da caixa de texto)
+        this.addRenderableWidget(net.minecraft.client.gui.components.Button.builder(Component.literal("Assinar e Selar"), button -> {
             // No futuro, colocaremos aqui o código para enviar o texto ao servidor (NBT)
             System.out.println("Texto a ser salvo: " + this.textBox.getValue());
             this.onClose();

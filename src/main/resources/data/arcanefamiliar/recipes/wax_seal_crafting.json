@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "arcanefamiliar:melted_wax" },
+    { "item": "minecraft:red_dye" },
+    { "item": "minecraft:string" }
+  ],
+  "result": {
+    "item": "arcanefamiliar:wax_seal",
+    "count": 4
+  }
+}

@@ -25,6 +25,9 @@ public class ArcaneFamiliar {
         if (event.getTabKey() == net.minecraft.world.item.CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.accept(com.jhonatan.arcanefamiliar.item.ModItems.PARCHMENT);
             event.accept(com.jhonatan.arcanefamiliar.item.ModItems.PARCEL);
+            event.accept(com.jhonatan.arcanefamiliar.item.ModItems.SEALED_PARCHMENT);
+            event.accept(com.jhonatan.arcanefamiliar.item.ModItems.MELTED_WAX);
+            event.accept(com.jhonatan.arcanefamiliar.item.ModItems.WAX_SEAL);
         }
     }
 

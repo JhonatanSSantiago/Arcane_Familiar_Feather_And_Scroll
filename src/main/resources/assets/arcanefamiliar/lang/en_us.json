@@ -1,4 +1,7 @@
 {
   "item.arcanefamiliar.parchment": "Arcane Parchment",
-  "item.arcanefamiliar.parcel": "Arcane Parcel"
+  "item.arcanefamiliar.parcel": "Arcane Parcel",
+  "item.arcanefamiliar.sealed_parchment": "Sealed Parchment",
+  "item.arcanefamiliar.melted_wax": "Melted Wax",
+  "item.arcanefamiliar.wax_seal": "Wax Seal"
 }
