@@ -58,7 +58,7 @@ public class SealParchmentC2SPacket {
                     net.minecraft.nbt.CompoundTag nbt = sealedParchment.getOrCreateTag();
                     nbt.putString("MessageText", messageText);
                     nbt.putString("Author", player.getName().getString()); // Guarda quem escreveu
-                    nbt.putString("Recipient", recipient); // Guarda o destinatário
+                    nbt.putString("DestinatarioNome", recipient); // Guarda o destinatário
 
                     // 4. Entrega o Pergaminho Selado ao jogador
                     if (!player.getInventory().add(sealedParchment)) {

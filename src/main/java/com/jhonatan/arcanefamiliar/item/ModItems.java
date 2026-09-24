@@ -1,6 +1,8 @@
 package com.jhonatan.arcanefamiliar.item;
 
 import com.jhonatan.arcanefamiliar.ArcaneFamiliar;
+import com.jhonatan.arcanefamiliar.item.custom.OpenedParcelItem;
+import com.jhonatan.arcanefamiliar.item.custom.OpenedParchmentItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -35,6 +37,12 @@ public class ModItems {
     // O selo final (cera derretida + corante + linha)
     public static final RegistryObject<Item> WAX_SEAL = ITEMS.register("wax_seal",
             () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> OPENED_PARCHMENT = ITEMS.register("opened_parchment",
+            () -> new OpenedParchmentItem(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> OPENED_PARCEL = ITEMS.register("opened_parcel",
+            () -> new OpenedParcelItem(new Item.Properties().stacksTo(1)));
 
     // Método para conectar a nossa lista de itens ao carregamento inicial do Minecraft
     public static void register(IEventBus eventBus) {

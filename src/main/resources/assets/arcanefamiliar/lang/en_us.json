@@ -4,5 +4,7 @@
   "item.arcanefamiliar.sealed_parchment": "Sealed Parchment",
   "item.arcanefamiliar.melted_wax": "Melted Wax",
   "item.arcanefamiliar.wax_seal": "Wax Seal",
-  "item.arcanefamiliar.sealed_parcel": "Pacote Selado"
+  "item.arcanefamiliar.sealed_parcel": "Sealed Package",
+  "item.arcanefamiliar.opened_parchment": "Open Parchment",
+  "item.arcanefamiliar.opened_parcel": "Torn Package"
 }

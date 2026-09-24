@@ -20,7 +20,10 @@ public class ArcaneFamiliar {
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::clientSetup);
 
+        //menus
         com.jhonatan.arcanefamiliar.menu.ModMenuTypes.register(modEventBus);
+        //entidades
+        com.jhonatan.arcanefamiliar.entity.ModEntityTypes.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
     }
@@ -49,6 +52,12 @@ public class ArcaneFamiliar {
         net.minecraft.client.gui.screens.MenuScreens.register(
                 com.jhonatan.arcanefamiliar.menu.ModMenuTypes.READ_PARCEL_MENU.get(),
                 com.jhonatan.arcanefamiliar.client.gui.ReadParcelScreen::new
+        );
+
+        // Regista o visual da nossa entidade para o jogador ver
+        net.minecraft.client.renderer.entity.EntityRenderers.register(
+                com.jhonatan.arcanefamiliar.entity.ModEntityTypes.COURIER.get(),
+                com.jhonatan.arcanefamiliar.client.renderer.entity.CourierRenderer::new
         );
     }
 

@@ -58,7 +58,7 @@ public class SealParcelC2SPacket {
 
                         // 4. Adiciona o Autor e o Destinatário
                         sealedParcel.getOrCreateTag().putString("Author", player.getName().getString());
-                        sealedParcel.getOrCreateTag().putString("Recipient", recipient);
+                        sealedParcel.getOrCreateTag().putString("DestinatarioNome", recipient); // A tag agora bate com a da coruja!
 
                         // 5. Substitui os itens na mão do jogador
                         parcel.shrink(1);

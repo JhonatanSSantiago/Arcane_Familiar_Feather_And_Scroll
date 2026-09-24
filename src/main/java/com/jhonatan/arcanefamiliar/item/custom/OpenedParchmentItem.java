@@ -14,9 +14,9 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class SealedParchmentItem extends Item {
+public class OpenedParchmentItem extends Item {
 
-    public SealedParchmentItem(Properties properties) {
+    public OpenedParchmentItem(Properties properties) {
         super(properties);
     }
 
@@ -25,31 +25,12 @@ public class SealedParchmentItem extends Item {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
 
-        if (!level.isClientSide()) {
-            // LADO DO SERVIDOR: Troca o item selado pelo pergaminho aberto
-            ItemStack pergaminhoAberto = new ItemStack(com.jhonatan.arcanefamiliar.item.ModItems.OPENED_PARCHMENT.get());
+        // Como o item já está aberto, não precisamos fazer nada no servidor (ele não se gasta).
+        // Apenas mostramos a interface de leitura no lado do "Cliente" (o ecrã do jogador).
+        if (level.isClientSide()) {
 
-            // Copia a mensagem, o autor e o destinatário para o novo item
-            if (stack.hasTag()) {
-                pergaminhoAberto.setTag(stack.getTag().copy());
-            }
-
-            // Remove o selado e entrega o aberto (se não estiver no modo criativo)
-            if (!player.getAbilities().instabuild) {
-                stack.shrink(1);
-            }
-
-            if (stack.isEmpty()) {
-                player.setItemInHand(hand, pergaminhoAberto);
-            } else {
-                if (!player.getInventory().add(pergaminhoAberto)) {
-                    player.drop(pergaminhoAberto, false);
-                }
-            }
-        } else {
-            // As interfaces gráficas (Telas) só existem no lado do "Cliente" (o seu ecrã)
-            // Toca o som de manusear papel no lado do cliente
-            player.playSound(net.minecraft.sounds.SoundEvents.UI_CARTOGRAPHY_TABLE_TAKE_RESULT, 1.0F, 1.0F);
+            // Toca um som suave de folhear uma página de livro
+            player.playSound(net.minecraft.sounds.SoundEvents.BOOK_PAGE_TURN, 1.0F, 1.0F);
 
             CompoundTag nbt = stack.getTag();
 
@@ -60,7 +41,7 @@ public class SealedParchmentItem extends Item {
 
             if (nbt != null) {
                 if (nbt.contains("Author")) autor = nbt.getString("Author");
-                // ATUALIZADO: Agora lê a chave "DestinatarioNome"
+                // Lê a chave "DestinatarioNome" para saber para quem era
                 if (nbt.contains("DestinatarioNome")) destinatario = nbt.getString("DestinatarioNome");
                 if (nbt.contains("MessageText")) mensagem = nbt.getString("MessageText");
             }
@@ -69,8 +50,8 @@ public class SealedParchmentItem extends Item {
             Minecraft.getInstance().setScreen(new com.jhonatan.arcanefamiliar.client.gui.ReadParchmentScreen(autor, destinatario, mensagem));
         }
 
-        // Retorna SUCCESS para garantir que a troca de itens é sincronizada visualmente e o item selado desaparece da mão
-        return InteractionResultHolder.success(player.getItemInHand(hand));
+        // sidedSuccess garante que a animação da mão (balanço) acontece corretamente
+        return InteractionResultHolder.sidedSuccess(stack, level.isClientSide());
     }
 
     @Override
@@ -79,15 +60,15 @@ public class SealedParchmentItem extends Item {
         CompoundTag nbt = stack.getTag();
 
         if (nbt != null) {
-            // ATUALIZADO: Agora lê a chave "DestinatarioNome"
+            // Mostra o Destinatário
             if (nbt.contains("DestinatarioNome")) {
                 tooltip.add(Component.literal("§cPara: §f" + nbt.getString("DestinatarioNome")));
             }
-            // Se tiver autor, adiciona uma linha amarela
+            // Mostra o Autor
             if (nbt.contains("Author")) {
                 tooltip.add(Component.literal("§7Assinado por: §e" + nbt.getString("Author")));
             }
-            // Se tiver mensagem, adiciona uma linha cinzenta
+            // Mostra a Mensagem
             if (nbt.contains("MessageText")) {
                 tooltip.add(Component.literal("§8" + nbt.getString("MessageText")));
             }
