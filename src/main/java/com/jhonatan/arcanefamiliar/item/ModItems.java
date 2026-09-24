@@ -3,6 +3,7 @@ package com.jhonatan.arcanefamiliar.item;
 import com.jhonatan.arcanefamiliar.ArcaneFamiliar;
 import com.jhonatan.arcanefamiliar.item.custom.OpenedParcelItem;
 import com.jhonatan.arcanefamiliar.item.custom.OpenedParchmentItem;
+import com.jhonatan.arcanefamiliar.item.custom.OwlEggItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -38,11 +39,27 @@ public class ModItems {
     public static final RegistryObject<Item> WAX_SEAL = ITEMS.register("wax_seal",
             () -> new Item(new Item.Properties()));
 
+    //pergaminho aberto
     public static final RegistryObject<Item> OPENED_PARCHMENT = ITEMS.register("opened_parchment",
             () -> new OpenedParchmentItem(new Item.Properties().stacksTo(1)));
 
+    //pacote rasgado
     public static final RegistryObject<Item> OPENED_PARCEL = ITEMS.register("opened_parcel",
             () -> new OpenedParcelItem(new Item.Properties().stacksTo(1)));
+
+    // spwan egg
+    public static final net.minecraftforge.registries.RegistryObject<net.minecraft.world.item.Item> COURIER_SPAWN_EGG =
+            ITEMS.register("courier_spawn_egg", () -> new net.minecraftforge.common.ForgeSpawnEggItem(
+                    com.jhonatan.arcanefamiliar.entity.ModEntityTypes.COURIER,
+                    0x4B3D38, // Cor primária do ovo (Hexadecimal)
+                    0x8A7B72, // Cor das manchas do ovo (Hexadecimal)
+                    new net.minecraft.world.item.Item.Properties()));
+
+    //ovo
+    public static final RegistryObject<Item> OWL_EGG = ITEMS.register("owl_egg",
+            () -> new OwlEggItem(new Item.Properties().stacksTo(16))
+    );
+
 
     // Método para conectar a nossa lista de itens ao carregamento inicial do Minecraft
     public static void register(IEventBus eventBus) {

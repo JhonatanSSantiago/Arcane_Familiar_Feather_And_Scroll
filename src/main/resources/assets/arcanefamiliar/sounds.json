@@ -1,0 +1,24 @@
+{
+  "courier_ambient": {
+    "category": "mob",
+    "sounds": [
+      "arcanefamiliar:owl_hoot_01",
+      "arcanefamiliar:owl_hoot_02",
+      "arcanefamiliar:owl_hoot_03",
+      "arcanefamiliar:owl_hoot_04",
+      "arcanefamiliar:owl_hoot_05"
+    ]
+  },
+  "courier_hurt": {
+    "category": "mob",
+    "sounds": [
+      "arcanefamiliar:courier_hurt"
+    ]
+  },
+  "courier_death": {
+    "category": "mob",
+    "sounds": [
+      "arcanefamiliar:courier_death"
+    ]
+  }
+}

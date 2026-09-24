@@ -9,12 +9,13 @@ import net.minecraft.resources.ResourceLocation;
 
 public class CourierRenderer extends MobRenderer<CourierEntity, ChickenModel<CourierEntity>> {
 
-    // Textura da galinha com o namespace "minecraft" explícito para remover o aviso
     private static final ResourceLocation TEXTURE = new ResourceLocation("minecraft", "textures/entity/chicken.png");
 
     public CourierRenderer(EntityRendererProvider.Context context) {
-        // Usa o modelo da galinha que aceita a nossa entidade sem erros de restrição
         super(context, new ChickenModel<>(context.bakeLayer(ModelLayers.CHICKEN)), 0.3f);
+
+        // Regista a nova camada no renderizador
+        this.addLayer(new CourierItemLayer(this));
     }
 
     @Override
