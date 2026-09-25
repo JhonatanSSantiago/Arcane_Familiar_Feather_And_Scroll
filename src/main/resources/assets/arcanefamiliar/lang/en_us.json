@@ -7,7 +7,8 @@
   "item.arcanefamiliar.sealed_parcel": "Sealed Package",
   "item.arcanefamiliar.opened_parchment": "Open Parchment",
   "item.arcanefamiliar.opened_parcel": "Torn Package",
-  "item.arcanefamiliar.courier_spawn_egg": "Courier Spawn Egg",
+  "item.arcanefamiliar.owl_spawn_egg": "Owl Spawn Egg",
+  "item.arcanefamiliar.crow_spawn_egg": "Crow Spawn Egg",
   "item.arcanefamiliar.owl_egg": "Owl Egg",
   "block.arcanefamiliar.owl_nest": "Ninho de Coruja"
 }

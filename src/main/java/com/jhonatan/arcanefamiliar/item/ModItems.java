@@ -5,6 +5,7 @@ import com.jhonatan.arcanefamiliar.item.custom.OpenedParcelItem;
 import com.jhonatan.arcanefamiliar.item.custom.OpenedParchmentItem;
 import com.jhonatan.arcanefamiliar.item.custom.OwlEggItem;
 import net.minecraft.world.item.Item;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -15,11 +16,11 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, ArcaneFamiliar.MODID);
 
-    // Agora chamamos PARCHMENT
+    // Parchment
     public static final RegistryObject<Item> PARCHMENT = ITEMS.register("parchment",
             () -> new com.jhonatan.arcanefamiliar.item.custom.ParchmentItem(new Item.Properties().stacksTo(1)));
 
-    //pacote
+    // Pacote
     public static final RegistryObject<Item> PARCEL = ITEMS.register("parcel",
             () -> new com.jhonatan.arcanefamiliar.item.custom.ParcelItem(new Item.Properties().stacksTo(1)));
 
@@ -27,7 +28,7 @@ public class ModItems {
     public static final RegistryObject<Item> SEALED_PARCHMENT = ITEMS.register("sealed_parchment",
             () -> new com.jhonatan.arcanefamiliar.item.custom.SealedParchmentItem(new Item.Properties().stacksTo(1)));
 
-    //pacote fechado e selado
+    // Pacote fechado e selado
     public static final RegistryObject<Item> SEALED_PARCEL = ITEMS.register("sealed_parcel",
             () -> new com.jhonatan.arcanefamiliar.item.custom.SealedParcelItem(new Item.Properties().stacksTo(1)));
 
@@ -39,27 +40,24 @@ public class ModItems {
     public static final RegistryObject<Item> WAX_SEAL = ITEMS.register("wax_seal",
             () -> new Item(new Item.Properties()));
 
-    //pergaminho aberto
+    // Pergaminho aberto
     public static final RegistryObject<Item> OPENED_PARCHMENT = ITEMS.register("opened_parchment",
             () -> new OpenedParchmentItem(new Item.Properties().stacksTo(1)));
 
-    //pacote rasgado
+    // Pacote rasgado
     public static final RegistryObject<Item> OPENED_PARCEL = ITEMS.register("opened_parcel",
             () -> new OpenedParcelItem(new Item.Properties().stacksTo(1)));
 
-    // spwan egg
-    public static final net.minecraftforge.registries.RegistryObject<net.minecraft.world.item.Item> COURIER_SPAWN_EGG =
-            ITEMS.register("courier_spawn_egg", () -> new net.minecraftforge.common.ForgeSpawnEggItem(
-                    com.jhonatan.arcanefamiliar.entity.ModEntityTypes.COURIER,
-                    0x4B3D38, // Cor primária do ovo (Hexadecimal)
-                    0x8A7B72, // Cor das manchas do ovo (Hexadecimal)
-                    new net.minecraft.world.item.Item.Properties()));
+    // Ovo de Spawn da Coruja
+    public static final RegistryObject<Item> OWL_SPAWN_EGG =
+            ITEMS.register("owl_spawn_egg", () -> new ForgeSpawnEggItem(
+                    com.jhonatan.arcanefamiliar.entity.ModEntityTypes.OWL,
+                    0x4B3D38, 0x8A7B72, new Item.Properties()));
 
-    //ovo
+    // Ovo de incubação da Coruja
     public static final RegistryObject<Item> OWL_EGG = ITEMS.register("owl_egg",
             () -> new OwlEggItem(new Item.Properties().stacksTo(16))
     );
-
 
     // Método para conectar a nossa lista de itens ao carregamento inicial do Minecraft
     public static void register(IEventBus eventBus) {

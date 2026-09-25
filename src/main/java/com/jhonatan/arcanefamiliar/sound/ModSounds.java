@@ -11,9 +11,15 @@ public class ModSounds {
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS =
             DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, ArcaneFamiliar.MODID);
 
-    public static final RegistryObject<SoundEvent> COURIER_AMBIENT = registerSoundEvent("courier_ambient");
-    public static final RegistryObject<SoundEvent> COURIER_HURT = registerSoundEvent("courier_hurt");
-    public static final RegistryObject<SoundEvent> COURIER_DEATH = registerSoundEvent("courier_death");
+    // Sons da Coruja
+    public static final RegistryObject<SoundEvent> OWL_AMBIENT = registerSoundEvent("owl_ambient");
+    public static final RegistryObject<SoundEvent> OWL_HURT = registerSoundEvent("owl_hurt");
+    public static final RegistryObject<SoundEvent> OWL_DEATH = registerSoundEvent("owl_death");
+
+    // Sons do Corvo
+    public static final RegistryObject<SoundEvent> CROW_AMBIENT = registerSoundEvent("crow_ambient");
+    public static final RegistryObject<SoundEvent> CROW_HURT = registerSoundEvent("crow_hurt");
+    public static final RegistryObject<SoundEvent> CROW_DEATH = registerSoundEvent("crow_death");
 
     private static RegistryObject<SoundEvent> registerSoundEvent(String name) {
         ResourceLocation id = new ResourceLocation(ArcaneFamiliar.MODID, name);

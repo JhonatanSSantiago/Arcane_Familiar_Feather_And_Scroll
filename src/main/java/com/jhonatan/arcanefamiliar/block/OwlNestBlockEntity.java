@@ -1,6 +1,6 @@
 package com.jhonatan.arcanefamiliar.block;
 
-import com.jhonatan.arcanefamiliar.entity.CourierEntity;
+import com.jhonatan.arcanefamiliar.entity.OwlEntity;
 import com.jhonatan.arcanefamiliar.entity.ModEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -50,7 +50,7 @@ public class OwlNestBlockEntity extends BlockEntity {
         level.sendBlockUpdated(pos, getBlockState(), getBlockState(), 3);
 
         // Cria a coruja bebé em cima do ninho
-        CourierEntity babyOwl = ModEntityTypes.COURIER.get().create(level);
+        OwlEntity babyOwl = ModEntityTypes.OWL.get().create(level);
         if (babyOwl != null) {
             babyOwl.setBaby(true);
             babyOwl.setPos(pos.getX() + 0.5D, pos.getY() + 1.0D, pos.getZ() + 0.5D);

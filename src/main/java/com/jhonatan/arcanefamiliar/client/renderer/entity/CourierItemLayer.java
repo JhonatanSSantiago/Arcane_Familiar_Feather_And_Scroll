@@ -1,6 +1,6 @@
 package com.jhonatan.arcanefamiliar.client.renderer.entity;
 
-import com.jhonatan.arcanefamiliar.entity.CourierEntity;
+import com.jhonatan.arcanefamiliar.entity.OwlEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
@@ -11,14 +11,14 @@ import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 
-public class CourierItemLayer extends RenderLayer<CourierEntity, ChickenModel<CourierEntity>> {
+public class CourierItemLayer extends RenderLayer<OwlEntity, ChickenModel<OwlEntity>> {
 
-    public CourierItemLayer(RenderLayerParent<CourierEntity, ChickenModel<CourierEntity>> parent) {
+    public CourierItemLayer(RenderLayerParent<OwlEntity, ChickenModel<OwlEntity>> parent) {
         super(parent);
     }
 
     @Override
-    public void render(PoseStack poseStack, MultiBufferSource buffer, int packedLight, CourierEntity entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
+    public void render(PoseStack poseStack, MultiBufferSource buffer, int packedLight, OwlEntity entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         ItemStack itemCarregado = entity.getPacoteCarregado();
 
         if (!itemCarregado.isEmpty()) {

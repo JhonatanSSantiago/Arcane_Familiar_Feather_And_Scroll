@@ -11,11 +11,12 @@ public class ModEntityTypes {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
             DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, "arcanefamiliar");
 
-    public static final RegistryObject<EntityType<CourierEntity>> COURIER =
-            ENTITY_TYPES.register("courier",
-                    () -> EntityType.Builder.of(CourierEntity::new, MobCategory.CREATURE)
-                            .sized(0.4f, 0.9f) // Tamanho da "caixa" invisível do bicho (similar a um papagaio)
-                            .build("courier"));
+    // Registamos oficialmente a Coruja
+    public static final RegistryObject<EntityType<OwlEntity>> OWL =
+            ENTITY_TYPES.register("owl",
+                    () -> EntityType.Builder.of(OwlEntity::new, MobCategory.CREATURE)
+                            .sized(0.4f, 0.9f) // Tamanho da hitbox da coruja
+                            .build("owl"));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

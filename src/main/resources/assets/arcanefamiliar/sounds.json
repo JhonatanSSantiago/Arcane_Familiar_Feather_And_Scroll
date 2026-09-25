@@ -1,5 +1,5 @@
 {
-  "courier_ambient": {
+  "owl_ambient": {
     "category": "mob",
     "sounds": [
       "arcanefamiliar:owl_hoot_01",
@@ -9,16 +9,36 @@
       "arcanefamiliar:owl_hoot_05"
     ]
   },
-  "courier_hurt": {
+  "owl_hurt": {
     "category": "mob",
     "sounds": [
-      "arcanefamiliar:courier_hurt"
+      "arcanefamiliar:owl_hurt"
     ]
   },
-  "courier_death": {
+  "owl_death": {
     "category": "mob",
     "sounds": [
-      "arcanefamiliar:courier_death"
+      "arcanefamiliar:owl_death"
+    ]
+  },
+  "crow_ambient": {
+    "category": "mob",
+    "sounds": [
+      "arcanefamiliar:crow_caw_01",
+      "arcanefamiliar:crow_caw_02",
+      "arcanefamiliar:crow_caw_03"
+    ]
+  },
+  "crow_hurt": {
+    "category": "mob",
+    "sounds": [
+      "arcanefamiliar:crow_hurt"
+    ]
+  },
+  "crow_death": {
+    "category": "mob",
+    "sounds": [
+      "arcanefamiliar:crow_death"
     ]
   }
 }

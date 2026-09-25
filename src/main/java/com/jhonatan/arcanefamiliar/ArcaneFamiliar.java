@@ -1,5 +1,6 @@
 package com.jhonatan.arcanefamiliar;
 
+import com.jhonatan.arcanefamiliar.client.renderer.entity.OwlRenderer;
 import com.jhonatan.arcanefamiliar.item.ModItems;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -44,7 +45,6 @@ public class ArcaneFamiliar {
             event.accept(com.jhonatan.arcanefamiliar.item.ModItems.MELTED_WAX);
             event.accept(com.jhonatan.arcanefamiliar.item.ModItems.WAX_SEAL);
             event.accept(ModItems.OWL_EGG);
-
         }
 
         // Aba de Blocos de Construção (ou Decoração) para o Ninho
@@ -54,7 +54,8 @@ public class ArcaneFamiliar {
 
         // Aba de Ovos de Invocação (Spawn Eggs)
         if (event.getTabKey() == net.minecraft.world.item.CreativeModeTabs.SPAWN_EGGS) {
-            event.accept(ModItems.COURIER_SPAWN_EGG);
+            event.accept(ModItems.OWL_SPAWN_EGG);
+            // O do corvo será adicionado novamente quando criarmos a entidade do corvo
         }
     }
 
@@ -62,33 +63,31 @@ public class ArcaneFamiliar {
         com.jhonatan.arcanefamiliar.network.ModMessages.register();
 
         event.enqueueWork(() -> {
-            // Regista as regras de nascimento da nossa ave mensageira (apenas no chão, ao ar livre)
+            // Regista as regras de nascimento da nossa coruja (apenas no chão, ao ar livre)
             net.minecraft.world.entity.SpawnPlacements.register(
-                    com.jhonatan.arcanefamiliar.entity.ModEntityTypes.COURIER.get(),
+                    com.jhonatan.arcanefamiliar.entity.ModEntityTypes.OWL.get(),
                     net.minecraft.world.entity.SpawnPlacements.Type.ON_GROUND,
                     net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     net.minecraft.world.entity.animal.Animal::checkAnimalSpawnRules
             );
         });
     }
+
     private void clientSetup(final net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent event) {
         // Liga o Menu Lógico ao Ecrã Visual
         net.minecraft.client.gui.screens.MenuScreens.register(
                 com.jhonatan.arcanefamiliar.menu.ModMenuTypes.PARCEL_MENU.get(),
                 com.jhonatan.arcanefamiliar.client.gui.ParcelScreen::new
         );
-        // Adicione esta nova linha:
         net.minecraft.client.gui.screens.MenuScreens.register(
                 com.jhonatan.arcanefamiliar.menu.ModMenuTypes.READ_PARCEL_MENU.get(),
                 com.jhonatan.arcanefamiliar.client.gui.ReadParcelScreen::new
         );
 
-        // Regista o visual da nossa entidade para o jogador ver
+        // Regista o visual da nossa coruja para o jogador ver
         net.minecraft.client.renderer.entity.EntityRenderers.register(
-                com.jhonatan.arcanefamiliar.entity.ModEntityTypes.COURIER.get(),
-                com.jhonatan.arcanefamiliar.client.renderer.entity.CourierRenderer::new
+                com.jhonatan.arcanefamiliar.entity.ModEntityTypes.OWL.get(),
+                OwlRenderer::new
         );
     }
-
-
 }

@@ -1,6 +1,6 @@
 package com.jhonatan.arcanefamiliar.event;
 
-import com.jhonatan.arcanefamiliar.entity.CourierEntity;
+import com.jhonatan.arcanefamiliar.entity.OwlEntity;
 import com.jhonatan.arcanefamiliar.entity.ModEntityTypes;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -13,6 +13,6 @@ public class ModEventBusEvents {
     @SubscribeEvent
     public static void registerAttributes(EntityAttributeCreationEvent event) {
         // Liga a vida e velocidade que criámos à nossa entidade Courier
-        event.put(ModEntityTypes.COURIER.get(), CourierEntity.createAttributes().build());
+        event.put(ModEntityTypes.OWL.get(), OwlEntity.createAttributes().build());
     }
 }
